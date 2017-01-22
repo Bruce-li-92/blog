@@ -1,0 +1,11 @@
+# debug node application in docker container
+
+最近遇到了node程序在docker container调试的问题。看了这篇帖子，茅舍顿开。 
+<https://alexanderzeitler.com/articles/debugging-a-nodejs-es6-application-in-a-docker-container-using-visual-studio-code/>
+
+原帖子中的命令，在node 4.x 和 6.x版本下，经过测试都是有效果的。
+
+由于用了node 7.x的版本， 原帖子中"--debug=5858"没有生效。帖子的回复中有提到"--debug=0.0.0.0:5858"，试了一下，还真的有效果。
+不过只在"node"下有效，后来试了一下："--inspect=0.0.0.0:5858"，"node2"下有效了，"--inspect=5858"也是有效果的。
+
+至此问题解决。
